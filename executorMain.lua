@@ -1,6 +1,3 @@
--- In Game Executor
--- Supports: Evon,Fluxus,Krnl,Kareant,DeskBlox,ExploitX, And Dansploit.
-
 local XWaveExecutor = Instance.new("ScreenGui")
 local main = Instance.new("Frame")
 local UIGradient = Instance.new("UIGradient")
@@ -98,19 +95,19 @@ Execute.TextWrapped = true
 
 -- Scripts:
 
-local function XWaveExecutorLUA4() -- ScriptBox.Execute 
+local function KBBPCCV_fake_script() -- ScriptBox.Execute 
 	local script = Instance.new('LocalScript', ScriptBox)
 
 	
 end
-coroutine.wrap(XWaveExecutorLUA4)()
-local function XWaveExecutorLUA3() -- ScriptBox.Inject 
+coroutine.wrap(KBBPCCV_fake_script)()
+local function EEJC_fake_script() -- ScriptBox.Inject 
 	local script = Instance.new('LocalScript', ScriptBox)
 
 	
 end
-coroutine.wrap(XWaveExecutorLUA3)()
-local function XWaveExecutorLUA2() -- Inject.  
+coroutine.wrap(EEJC_fake_script)()
+local function RFXU_fake_script() -- Inject.  
 	local script = Instance.new('LocalScript', Inject)
 
 	local MainAPI = require(_G.API, game)
@@ -122,8 +119,8 @@ local function XWaveExecutorLUA2() -- Inject.
 		script.Parent.Parent.Execute.InjectAPI:GetAPI(module.SuccessExecute)
 	end
 end
-coroutine.wrap(XWaveExecutorLUA2)()
-local function XWaveExecutorLUA() -- Execute.  
+coroutine.wrap(RFXU_fake_script)()
+local function KTPZ_fake_script() -- Execute.  
 	local script = Instance.new('LocalScript', Execute)
 
 	local MainAPI = require(_G.API, game)
@@ -138,8 +135,8 @@ local function XWaveExecutorLUA() -- Execute.
 		module.CanExecute = false
 	end
 end
-coroutine.wrap(XWaveExecutorLUA)()
-local function XWaveExecutorLUA1() -- Execute.InjectAPI 
+coroutine.wrap(KTPZ_fake_script)()
+local function XFLA_fake_script() -- Execute.InjectAPI 
 	local script = Instance.new('LocalScript', Execute)
 
 	local MainAPI = require(_G.API, game)
@@ -154,4 +151,46 @@ local function XWaveExecutorLUA1() -- Execute.InjectAPI
 		module.CanExecute = false
 	end
 end
-coroutine.wrap(XWaveExecutorLUA1)()
+coroutine.wrap(XFLA_fake_script)()
+local function JGOJAHP_fake_script() -- main.DragScript 
+	local script = Instance.new('LocalScript', main)
+
+	
+	local UIS = game:GetService('UserInputService')
+	local frame = script.Parent
+	local dragToggle = nil
+	local dragSpeed = 0.25
+	local dragStart = nil
+	local startPos = nil
+	
+	local function updateInput(input)
+		local delta = input.Position - dragStart
+		local position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X,
+			startPos.Y.Scale, startPos.Y.Offset + delta.Y)
+		game:GetService('TweenService'):Create(frame, TweenInfo.new(dragSpeed), {Position = position}):Play()
+	end
+	
+	frame.InputBegan:Connect(function(input)
+		if (input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch) then 
+			dragToggle = true
+			dragStart = input.Position
+			startPos = frame.Position
+			input.Changed:Connect(function()
+				if input.UserInputState == Enum.UserInputState.End then
+					dragToggle = false
+				end
+			end)
+		end
+	end)
+	
+	UIS.InputChanged:Connect(function(input)
+		if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+			if dragToggle then
+				updateInput(input)
+			end
+		end
+	end)
+	
+end
+coroutine.wrap(JGOJAHP_fake_script)()
+
